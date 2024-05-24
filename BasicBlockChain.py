@@ -9,8 +9,7 @@ class Blockchain:
     def __init__(self):
         self.chain = []
         self.current_transactions = []
-        self.new_block(previous_hash='1', proof=100)  # Create the genesis block
-
+        self.new_block(previous_hash='1', proof=100)  
     def new_block(self, proof, previous_hash=None):
         block = {
             'index': len(self.chain) + 1,
@@ -85,11 +84,10 @@ class BlockchainApp:
         self.add_transaction_button = tk.Button(self.root, text="Add Transaction", command=self.add_transaction)
         self.add_transaction_button.grid(row=4, column=0, columnspan=2, pady=10)
 
-        # Chain Display
+    
         self.chain_text = tk.Text(self.root, height=20, width=50)
         self.chain_text.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
 
-        # Display the initial blockchain state
         self.display_chain()
 
     def mine_block(self):
